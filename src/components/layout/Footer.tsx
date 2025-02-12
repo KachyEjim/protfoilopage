@@ -1,7 +1,7 @@
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/ui/Icons'
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/ui/Icons';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex space-x-4">
             <a
-              href="https://github.com/Chymezy"
+              href="https://github.com/kachyejim"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
@@ -19,7 +19,7 @@ export default function Footer() {
               <GitHubIcon className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/ejimvincent"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
@@ -28,7 +28,7 @@ export default function Footer() {
               <LinkedInIcon className="w-6 h-6" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://twitter.com/ejimvincent"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
@@ -40,10 +40,10 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-sm text-gray-600 dark:text-gray-400">
-            © {currentYear} Benjamin Joshua. All rights reserved.
+            © {currentYear} Onyedikachi Ejim. All rights reserved.
           </div>
         </div>
       </div>
     </footer>
-  )
-} 
+  );
+}
