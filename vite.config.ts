@@ -1,13 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' 
-    ? '/chymezy-solutions/' 
-    : '/',  // Use root path for local development
+  base: process.env.NODE_ENV === 'production' ? '/movic-tech/' : '/', // Use root path for local development
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -16,5 +14,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-  }
-})
+  },
+});
