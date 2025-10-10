@@ -30,7 +30,6 @@ function HomePage() {
 }
 
 function App() {
-  // Get the base URL from environment - now deployed at root
   const baseUrl = '/';
 
   return (
