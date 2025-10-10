@@ -1,50 +1,10 @@
 import { Button } from '@/components/ui/Button';
 import ScheduleModal from '@/components/ui/ScheduleModal';
-import {
-  CodeBracketIcon,
-  CommandLineIcon,
-  CpuChipIcon,
-  LightBulbIcon,
-  ServerIcon,
-} from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function Hero() {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
-
-  const highlights = [
-    {
-      title: 'Backend Development',
-      description:
-        'Building robust, scalable APIs and server-side logic with Node.js, Python, and cloud platforms.',
-      icon: ServerIcon,
-    },
-    {
-      title: 'Full-Stack Solutions',
-      description:
-        'Delivering seamless user experiences and efficient architectures using React, TypeScript, and modern web technologies.',
-      icon: CodeBracketIcon,
-    },
-    {
-      title: 'System Architecture',
-      description:
-        'Designing and implementing high-performance, maintainable systems for business growth.',
-      icon: CommandLineIcon,
-    },
-    {
-      title: 'Systems Engineering',
-      description:
-        'Extensive background in Electronics, IoT architecture, and Embedded systems development.',
-      icon: CpuChipIcon,
-    },
-    {
-      title: 'Solution Architecture',
-      description:
-        'Designing scalable, high-performance solutions with proven methodologies.',
-      icon: LightBulbIcon,
-    },
-  ];
 
   return (
     <section
@@ -211,8 +171,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
-
-        {/* Highlights Grid - Full Width (removed duplicate status) */}
       </div>
 
       {/* Modal */}
