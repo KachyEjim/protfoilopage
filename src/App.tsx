@@ -30,8 +30,8 @@ function HomePage() {
 }
 
 function App() {
-  // Get the base URL from environment
-  const baseUrl = import.meta.env.DEV ? '/' : '/protfoilopage';
+  // Get the base URL from environment - now deployed at root
+  const baseUrl = '/';
 
   return (
     <Suspense fallback={<LoadingState />}>
