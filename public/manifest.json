@@ -4,22 +4,22 @@
   "description": "Full Stack Software Engineer specializing in backend development and system architecture.",
   "icons": [
     {
-      "src": "/movic-tech/vite.svg",
+      "src": "/vite.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     },
     {
-      "src": "/movic-tech/me.png",
+      "src": "/me.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/movic-tech/enhanced_profile_picture_2.jpeg",
+      "src": "/enhanced_profile_picture_2.jpeg",
       "type": "image/jpeg",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/movic-tech/",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#0ea5e9",
   "background_color": "#0ea5e9"
