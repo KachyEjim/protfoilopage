@@ -1,0 +1,26 @@
+{
+  "short_name": "KACHY",
+  "name": "Onyedikachi Ejim - Full Stack Engineer",
+  "description": "Full Stack Software Engineer specializing in backend development and system architecture.",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/me.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/enhanced_profile_picture_2.jpeg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0ea5e9"
+}

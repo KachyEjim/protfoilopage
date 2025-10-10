@@ -1,0 +1,31 @@
+# www.robotstxt.org/
+
+# Allow crawling of all content
+User-agent: *
+Allow: /
+
+# Disallow crawling of error pages
+Disallow: /404
+Disallow: /error
+
+# Sitemap location
+Sitemap: https://kachy.dev/sitemap.xml
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 10
+
+# Additional rules for specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block unwanted bots
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
