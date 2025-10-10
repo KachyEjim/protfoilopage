@@ -5,15 +5,37 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { Suspense, lazy } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 
+console.log('🚀 App.tsx loaded');
+
 // Lazy load components
-const Hero = lazy(() => import('@/components/sections/Hero'));
-const Services = lazy(() => import('@/components/sections/Services'));
-const Skills = lazy(() => import('@/components/sections/Skills'));
-const Projects = lazy(() => import('@/components/sections/Projects'));
-const Experience = lazy(() => import('@/components/sections/Experience'));
-const Contact = lazy(() => import('@/components/sections/Contact'));
+const Hero = lazy(() => {
+  console.log('📦 Loading Hero component');
+  return import('@/components/sections/Hero');
+});
+const Services = lazy(() => {
+  console.log('📦 Loading Services component');
+  return import('@/components/sections/Services');
+});
+const Skills = lazy(() => {
+  console.log('📦 Loading Skills component');
+  return import('@/components/sections/Skills');
+});
+const Projects = lazy(() => {
+  console.log('📦 Loading Projects component');
+  return import('@/components/sections/Projects');
+});
+const Experience = lazy(() => {
+  console.log('📦 Loading Experience component');
+  return import('@/components/sections/Experience');
+});
+const Contact = lazy(() => {
+  console.log('📦 Loading Contact component');
+  return import('@/components/sections/Contact');
+});
 
 function App() {
+  console.log('✅ App component rendering');
+  
   return (
     <Suspense fallback={<LoadingState />}>
       <HelmetProvider>
@@ -32,5 +54,7 @@ function App() {
     </Suspense>
   );
 }
+
+console.log('✅ App function defined');
 
 export default App;
