@@ -1,39 +1,41 @@
-import { motion } from 'framer-motion'
-import { XMarkIcon, CalendarIcon } from '@heroicons/react/24/outline'
-import { Button } from '@/components/ui/Button'
-import { useForm } from 'react-hook-form'
+import { Button } from '@/components/ui/Button';
+import { CalendarIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
+import { useForm } from 'react-hook-form';
 
 interface ScheduleModalProps {
-  onClose: () => void
+  onClose: () => void;
 }
 
 type FormData = {
-  name: string
-  email: string
-  projectType: string
-  message: string
-}
+  name: string;
+  email: string;
+  projectType: string;
+  message: string;
+};
 
 export default function ScheduleModal({ onClose }: ScheduleModalProps) {
   const {
     register,
     handleSubmit,
-    formState: { errors }
-  } = useForm<FormData>()
+    formState: { errors },
+  } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
     // Format email content
-    const emailSubject = `Project Discussion Request: ${data.projectType}`
+    const emailSubject = `Project Discussion Request: ${data.projectType}`;
     const emailBody = `
 Name: ${data.name}
 Project Type: ${data.projectType}
 Message: ${data.message}
-    `.trim()
+    `.trim();
 
     // Open email client
-    window.location.href = `mailto:contact@chymezy.dev?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
-    onClose()
-  }
+    window.location.href = `mailto:ejimovc@gmail.com?subject=${encodeURIComponent(
+      emailSubject,
+    )}&body=${encodeURIComponent(emailBody)}`;
+    onClose();
+  };
 
   return (
     <motion.div
@@ -48,7 +50,7 @@ Message: ${data.message}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
         className="relative w-full max-w-md bg-white dark:bg-gray-800 rounded-xl p-6"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -81,7 +83,9 @@ Message: ${data.message}
                          bg-white dark:bg-gray-700"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.name.message}
+                </p>
               )}
             </div>
 
@@ -94,52 +98,70 @@ Message: ${data.message}
                   required: 'Email is required',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Invalid email address'
-                  }
+                    message: 'Invalid email address',
+                  },
                 })}
                 type="email"
                 className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
             <div>
-              <label htmlFor="projectType" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="projectType"
+                className="block text-sm font-medium mb-1"
+              >
                 Project Type
               </label>
               <select
-                {...register('projectType', { required: 'Please select a project type' })}
+                {...register('projectType', {
+                  required: 'Please select a project type',
+                })}
                 className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700"
               >
                 <option value="">Select a project type</option>
-                <option value="Full Stack Development">Full Stack Development</option>
+                <option value="Full Stack Development">
+                  Full Stack Development
+                </option>
                 <option value="Backend Development">Backend Development</option>
                 <option value="System Architecture">System Architecture</option>
-                <option value="Technical Consulting">Technical Consulting</option>
+                <option value="Technical Consulting">
+                  Technical Consulting
+                </option>
               </select>
               {errors.projectType && (
-                <p className="mt-1 text-sm text-red-500">{errors.projectType.message}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.projectType.message}
+                </p>
               )}
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-1"
+              >
                 Message
               </label>
               <textarea
                 {...register('message', {
-                  required: 'Please provide some details about your project'
+                  required: 'Please provide some details about your project',
                 })}
                 rows={3}
                 className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700"
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.message.message}
+                </p>
               )}
             </div>
 
@@ -150,5 +172,5 @@ Message: ${data.message}
         </div>
       </motion.div>
     </motion.div>
-  )
-} 
+  );
+}

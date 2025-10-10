@@ -9,7 +9,7 @@ Disallow: /404
 Disallow: /error
 
 # Sitemap location
-Sitemap: https://chymezy.dev/sitemap.xml
+Sitemap: https://kachy.dev/sitemap.xml
 
 # Crawl-delay to prevent server overload
 Crawl-delay: 10

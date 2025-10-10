@@ -1,5 +1,5 @@
 {
-  "name": "chymezy-solutions",
+  "name": "movic-tech",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -53,5 +53,5 @@
     "vite": "^5.0.8",
     "vitest": "^1.2.2"
   },
-  "homepage": "https://chymezy.github.io/chymezy-solutions"
+  "homepage": "https://kachyejim.github.io/movic-tech"
 }
