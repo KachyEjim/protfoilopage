@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
-import { useTheme } from '@/context/ThemeContext'
-import { motion } from 'framer-motion'
+import { useTheme } from '@/context/ThemeContext';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const navItems = [
   { name: 'Home', href: '#hero' },
@@ -9,13 +9,13 @@ const navItems = [
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Contact', href: '#contact' }
-]
+  { name: 'Contact', href: '#contact' },
+];
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme()
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('hero')
+  const { theme, toggleTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   // Handle scroll and intersection observer
   useEffect(() => {
@@ -23,33 +23,33 @@ export default function Navbar() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+            setActiveSection(entry.target.id);
           }
-        })
+        });
       },
-      { threshold: 0.5 }
-    )
+      { threshold: 0.5 },
+    );
 
     // Observe all sections
     document.querySelectorAll('section[id]').forEach((section) => {
-      observer.observe(section)
-    })
+      observer.observe(section);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   // Smooth scroll handler
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    const href = e.currentTarget.getAttribute('href')
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
     if (href) {
-      const element = document.querySelector(href)
+      const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-        setIsOpen(false) // Close mobile menu after clicking
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false); // Close mobile menu after clicking
       }
     }
-  }
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-sm">
@@ -57,31 +57,29 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo with enhanced animations */}
           <div className="flex-shrink-0">
-            <a 
-              href="#hero"
-              onClick={handleClick}
-              className="relative group"
-            >
+            <a href="#hero" onClick={handleClick} className="relative group">
               <motion.span
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
                 className="text-2xl font-bold relative inline-block"
               >
                 {/* Gradient Text */}
-                <span className="bg-gradient-to-r from-primary-600 via-purple-500 to-pink-500 
-                                text-transparent bg-clip-text animate-gradient">
+                <span
+                  className="bg-gradient-to-r from-primary-600 via-purple-500 to-pink-500 
+                                text-transparent bg-clip-text animate-gradient"
+                >
                   KACHY
                 </span>
 
                 {/* Glow Effect */}
-                <span 
+                <span
                   className="absolute -inset-2 bg-gradient-to-r from-primary-600 via-purple-500 to-pink-500 
                              rounded-lg blur opacity-20 group-hover:opacity-30 transition-all duration-300
-                             animate-pulse" 
+                             animate-pulse"
                   aria-hidden="true"
                 />
 
@@ -95,7 +93,7 @@ export default function Navbar() {
               </motion.span>
             </a>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
@@ -105,9 +103,10 @@ export default function Navbar() {
                   href={item.href}
                   onClick={handleClick}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
-                            ${activeSection === item.href.slice(1)
-                              ? 'text-primary-600 dark:text-primary-400'
-                              : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                            ${
+                              activeSection === item.href.slice(1)
+                                ? 'text-primary-600 dark:text-primary-400'
+                                : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
                             }`}
                 >
                   {item.name}
@@ -117,7 +116,9 @@ export default function Navbar() {
                 onClick={toggleTheme}
                 className="p-2 rounded-md text-gray-700 dark:text-gray-300 
                          hover:bg-gray-100 dark:hover:bg-gray-800"
-                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                aria-label={`Switch to ${
+                  theme === 'dark' ? 'light' : 'dark'
+                } mode`}
               >
                 {theme === 'dark' ? (
                   <SunIcon className="h-5 w-5" />
@@ -141,9 +142,21 @@ export default function Navbar() {
               <span className="sr-only">Open main menu</span>
               {/* Icon */}
               <div className="h-6 w-6 flex flex-col justify-center space-y-1.5">
-                <span className={`block h-0.5 w-6 bg-current transform transition duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                <span className={`block h-0.5 w-6 bg-current transition duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-                <span className={`block h-0.5 w-6 bg-current transform transition duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                <span
+                  className={`block h-0.5 w-6 bg-current transform transition duration-300 ${
+                    isOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-current transition duration-300 ${
+                    isOpen ? 'opacity-0' : ''
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-6 bg-current transform transition duration-300 ${
+                    isOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
+                />
               </div>
             </button>
           </div>
@@ -164,9 +177,10 @@ export default function Navbar() {
               href={item.href}
               onClick={handleClick}
               className={`block px-3 py-2 rounded-md text-base font-medium
-                        ${activeSection === item.href.slice(1)
-                          ? 'text-primary-600 dark:text-primary-400'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                        ${
+                          activeSection === item.href.slice(1)
+                            ? 'text-primary-600 dark:text-primary-400'
+                            : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
                         }`}
             >
               {item.name}
@@ -191,5 +205,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
-} 
+  );
+}

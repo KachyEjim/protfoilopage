@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/movic-tech/' : '/', // Use root path for local development
+  base: '/', // Always use root path for universal access
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -14,5 +14,14 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+  },
+  server: {
+    host: '0.0.0.0',
+    cors: true,
+    strictPort: true,
+    hmr: {
+      clientPort: 443, // for ngrok HTTPS
+    },
+    allowedHosts: ['6c022b3d74a3.ngrok-free.app'], // Explicitly allow ngrok host
   },
 });

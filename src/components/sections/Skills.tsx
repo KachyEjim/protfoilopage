@@ -22,13 +22,13 @@ interface Skill {
 const skills: Skill[] = [
   {
     name: 'System Architecture',
-    level: 2,
-    years: 1.5,
+    level: 4,
+    years: 3,
     category: 'Architecture',
     subcategory: 'Distributed Systems',
     projects: 4,
     icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/microsoftazure.svg',
-    proficiency: 'Learning',
+    proficiency: 'Advanced',
     technologies: [
       'Microservices',
       'Event-Driven',
@@ -40,7 +40,7 @@ const skills: Skill[] = [
   {
     name: 'API Development',
     level: 4,
-    years: 2,
+    years: 4,
     category: 'Backend',
     subcategory: 'Web Services',
     projects: 6,
@@ -51,7 +51,7 @@ const skills: Skill[] = [
   {
     name: 'Database Design',
     level: 4,
-    years: 2,
+    years: 4,
     category: 'Database',
     subcategory: 'Data Modeling',
     projects: 5,
@@ -62,7 +62,7 @@ const skills: Skill[] = [
   {
     name: 'Cloud Infrastructure',
     level: 3,
-    years: 2,
+    years: 3,
     category: 'Cloud',
     subcategory: 'AWS',
     projects: 1.5,
@@ -74,7 +74,7 @@ const skills: Skill[] = [
   {
     name: 'DevOps & CI/CD',
     level: 3,
-    years: 2,
+    years: 4,
     category: 'DevOps',
     subcategory: 'Automation',
     projects: 3,
@@ -85,13 +85,34 @@ const skills: Skill[] = [
   {
     name: 'Software Engineering',
     level: 5,
-    years: 1.5,
+    years: 3,
     category: 'Backend',
     subcategory: 'Core Development',
     projects: 3,
-    icon: 'https://cdn.simpleicons.org/nodedotjs/339933',
+    icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/nodedotjs.svg',
     proficiency: 'Advanced',
-    technologies: ['Node.js', 'Python', 'TypeScript', 'Go'],
+    technologies: ['Node.js', 'Python', 'C/C++', 'TypeScript', 'Go'],
+  },
+  {
+    name: 'Embedded Systems Design & IoT',
+    level: 4,
+    years: 6,
+    category: 'Architecture',
+    subcategory: 'IoT & Embedded Devices',
+    projects: 4,
+    icon: 'https://cdn.simpleicons.org/raspberrypi/C51A4A',
+    proficiency: 'Advanced',
+    technologies: [
+      'C/C++',
+      'MicroPython',
+      'Arduino',
+      'Raspberry Pi',
+      'ESP32',
+      'MQTT',
+      'Sensors',
+      'Edge Computing',
+    ],
+    certifications: ['IoT Specialist'],
   },
 ];
 
@@ -100,15 +121,19 @@ export default function Skills() {
     Skill['category'] | 'All'
   >('All');
 
-  const categories = ['All', ...new Set(skills.map((skill) => skill.category))];
+  const categories: Array<Skill['category'] | 'All'> = [
+    'All',
+    ...Array.from(new Set(skills.map((skill) => skill.category))),
+  ];
 
   const filteredSkills =
     activeCategory === 'All'
       ? skills
       : skills.filter((skill) => skill.category === activeCategory);
 
+  // Reduce top padding to decrease space between Services and Skills
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="pt-2 pb-24">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -118,12 +143,12 @@ export default function Skills() {
           className="space-y-16"
         >
           {/* Section Header */}
-          <div className="text-center space-y-6">
-            <h2 className="text-4xl font-bold sm:text-5xl text-gray-900 dark:text-white">
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl font-bold sm:text-3xl text-gray-900 dark:text-white">
               Technical Expertise
             </h2>
-            <p className="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
-              Specialized in enterprise solutions and distributed systems
+            <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300">
+              My core skills and technologies.
             </p>
           </div>
 
