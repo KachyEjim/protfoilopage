@@ -4,22 +4,22 @@
   "description": "Full Stack Software Engineer specializing in backend development and system architecture.",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     },
     {
-      "src": "/logo192.png",
+      "src": "/me.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/logo512.png",
-      "type": "image/png",
+      "src": "/enhanced_profile_picture_2.jpeg",
+      "type": "image/jpeg",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#0ea5e9",
   "background_color": "#0ea5e9"
